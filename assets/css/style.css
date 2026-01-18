@@ -1,3 +1,4 @@
+@import "dropdown.css";
 :root {
     --color-primary: #000;
     --color-secondary: #fff;
@@ -73,16 +74,14 @@ main {
     max-width: 1440px;
     margin: 0 auto;
     flex: 1;
-    display: grid;
-    grid-template-rows: auto 1fr;
+    display: flex;
+    flex-direction: column;
     background-color: var(--color-background);
 }
 .h1-title-page { 
     padding: 40px 20px 40px 20px;
-    grid-row: 1;
 }
 .users-container { 
-    grid-row: 2;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -92,15 +91,21 @@ main {
     padding: 20px;
 }
 
+.user-card-wrapper {
+    position: relative;
+    max-width: 380px;
+    min-width: 300px;
+    flex: 1 1 300px;
+}
+
 .user-card {
     background-color: var(--color-background);
     border-radius: 15px;
     padding: 20px;
     box-shadow: var(--shadow-card);
-    max-width: 380px;
-    min-width: 300px;
-    flex: 1 1 300px;
-    height: 100%;
+    width: 100%;
+    height: 190px;
+    min-height: 190px;
     max-height: 190px;
     display: grid;
     grid-template-columns: auto 1fr;
@@ -108,7 +113,7 @@ main {
     column-gap: 10px;
     box-sizing: border-box;
     position: relative;
-    overflow: hidden;
+    overflow: hidden;   
     font-family: 'Comfortaa', sans-serif;
 }
 
@@ -249,4 +254,91 @@ footer {
 footer p {
     margin: 0;
     font-size: 14px;
+}
+
+/* Estilos para modo de edição */
+.edit-input {
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid var(--color-quaternary);
+    border-radius: 0;
+    padding: 0;
+    font-size: inherit;
+    font-family: 'Comfortaa', sans-serif;
+    background-color: transparent;
+    color: var(--color-text-primary);
+    outline: none;
+}
+
+.user-name-input {
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0;
+    border-bottom-color: var(--color-text-primary);
+}
+
+.user-email-input,
+.user-phone-input {
+    font-size: 14px;
+    font-weight: 300;
+    margin: 0 0 8px 0;
+    padding-left: 28px;
+    border-bottom-color: var(--color-text-secondary);
+}
+
+.edit-input:focus {
+    border-bottom-color: var(--color-quaternary);
+}
+
+.edit-actions {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+    z-index: 100;
+}
+
+.confirm-btn,
+.cancel-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    transition: background-color 0.2s;
+}
+
+.confirm-btn:hover {
+    background-color: #d1fae5;
+}
+
+.cancel-btn:hover {
+    background-color: #fee2e2;
+}
+
+.confirm-btn .material-symbols-outlined {
+    font-size: 24px;
+    color: var(--color-primary);
+    display: inline-block;
+    font-weight: 500;
+}
+
+.cancel-btn .material-symbols-outlined {
+    font-size: 24px;
+    color: var(--color-primary);
+    display: inline-block;
+    font-weight: 500;
+}
+
+.confirm-btn:hover .material-symbols-outlined {
+    color: #10b981;
+}
+
+.cancel-btn:hover .material-symbols-outlined {
+    color: #ef4444;
 }
